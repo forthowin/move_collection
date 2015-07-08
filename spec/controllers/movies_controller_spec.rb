@@ -41,4 +41,14 @@ describe MoviesController do
       end
     end
   end
+
+  describe 'GET index' do
+    it 'assigns all the movies to @movies' do
+      movie1 = Fabricate(:movie)
+      movie2 = Fabricate(:movie)
+      movie3 = Fabricate(:movie)
+      get :index
+      expect(assigns(:movies)).to eq [movie1, movie2, movie3]
+    end
+  end
 end

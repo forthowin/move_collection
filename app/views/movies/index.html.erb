@@ -1,0 +1,29 @@
+<h1>My Movies</h1>
+<hr>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= sortable_column "Title" %></th>
+    <th><%= sortable_column "Format" %></th>
+    <th><%= sortable_column "Length" %></th>
+    <th><%= sortable_column "Release Year" %></th>
+    <th><%= sortable_column "Rating" %></th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= movie.format %></td>
+      <td><%= movie.length %></td>
+      <td><%= movie.release_year %></td>
+      <td><%= movie.rating %></td>
+      <td><%= link_to "edit", edit_movie_path(movie) %></td>
+      <td>
+        <%= link_to movie_path(movie), method: :delete do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

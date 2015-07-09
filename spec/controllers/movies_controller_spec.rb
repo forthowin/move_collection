@@ -67,4 +67,45 @@ describe MoviesController do
       expect(assigns(:movie)).to eq movie
     end
   end
+
+  describe 'POST update' do
+    let(:movie) { Fabricate(:movie) }
+
+    context 'with valid parameters' do
+      before { patch :update, id: movie.id, movie: { title: 'Jurassic World', rating: 3 } }
+      
+      it 'updates the movie' do
+        expect(Movie.first.title).to eq 'Jurassic World'
+        expect(Movie.first.rating).to eq 3
+      end
+
+      it 'sets the flash success message' do
+        expect(flash[:success]).to be_present
+      end
+
+      it 'redirects to the movie show page' do
+        expect(response).to redirect_to movie_path movie
+      end
+    end
+
+    context 'with invalid parameters' do
+      before { patch :update, id: movie.id, movie: { title: 'Jurassic World', length: 600 } }
+
+      it 'does not update the movie' do
+        expect(Movie.first.title).not_to eq 'Jurassic World'
+      end
+
+      it 'assigns @movie' do
+        expect(assigns(:movie)).to eq movie
+      end
+
+      it 'sets the flash danger message' do
+        expect(flash[:danger]).to be_present
+      end
+
+      it 'renders the edit template' do
+        expect(response).to render_template :edit
+      end
+    end
+  end
 end

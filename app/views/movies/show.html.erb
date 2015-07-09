@@ -1,7 +1,7 @@
 <%= render 'movies/content_title', title: "#{@movie.title}" %>
 
 <h3><%= "Format: #{@movie.format}" %></h3>
-<h3><%= "Length: #{@movie.length}" %></h3>
+<h3><%= "Length: #{format_length(@movie.length)}" %></h3>
 <h3><%= "Release Year: #{@movie.release_year}" %></h3>
 <h3><%= "Rating: #{format_rating(@movie)}" %></h3>
 

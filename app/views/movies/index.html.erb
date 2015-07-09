@@ -14,7 +14,7 @@
     <tr>
       <td><%= link_to movie.title, movie_path(movie) %></td>
       <td><%= movie.format %></td>
-      <td><%= movie.length %></td>
+      <td><%= format_length(movie.length) %></td>
       <td><%= movie.release_year %></td>
       <td><%= format_rating(movie) %></td>
       <td><%= link_to "edit", edit_movie_path(movie) %></td>

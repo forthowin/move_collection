@@ -59,4 +59,12 @@ describe MoviesController do
       expect(assigns(:movie)).to eq movie
     end
   end
+
+  describe 'GET edit' do
+    it 'assigns @movie' do
+      movie = Fabricate(:movie)
+      get :edit, id: movie.id
+      expect(assigns(:movie)).to eq movie
+    end
+  end
 end

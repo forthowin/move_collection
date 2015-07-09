@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
+  handles_sortable_columns
+
   def new
     @movie = Movie.new
   end
@@ -17,7 +19,8 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    order = sortable_column_order
+    @movies = Movie.order(order)
   end
 
   def show

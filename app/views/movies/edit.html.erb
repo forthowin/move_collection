@@ -1,5 +1,4 @@
-<h1>Edit <%= @movie.title %> </h1>
-<hr>
+<%= render 'movies/content_title', title: "Edit #{@movie.title}" %>
 
 <%= bootstrap_form_for @movie do |f| %>
   <div class="row">

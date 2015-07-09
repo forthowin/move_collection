@@ -1,5 +1,4 @@
-<h1><%= @movie.title %></h1>
-<hr>
+<%= render 'movies/content_title', title: "#{@movie.title}" %>
 
 <h3><%= "Format: #{@movie.format}" %></h3>
 <h3><%= "Length: #{@movie.length}" %></h3>

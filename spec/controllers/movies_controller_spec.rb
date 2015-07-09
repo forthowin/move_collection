@@ -16,8 +16,8 @@ describe MoviesController do
         expect(Movie.count).to eq 1
       end
 
-      it 'redirects to the new template' do
-        expect(response).to redirect_to new_movie_path
+      it 'redirects to the show movie template' do
+        expect(response).to redirect_to movie_path Movie.first
       end
 
       it 'sets the flash success message' do

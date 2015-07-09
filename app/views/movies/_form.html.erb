@@ -1,21 +1,21 @@
 <%= bootstrap_form_for @movie do |f| %>
   <div class="row">
-    <div class= "col-xs-5">
+    <div class= "form-title">
       <%= f.text_field :title %>
     </div>
   </div>
   <div class="row">
-    <div class= "col-xs-2">
+    <div class= "form-options">
       <%= f.select :format, [["VHS", "VHS"], ["DVD", "DVD"], ["Streaming", "Streaming"]], { label: "Format" }, { class: "selectpicker" } %>
     </div>
   </div>
   <div class="row">
-    <div class= "col-xs-2">
+    <div class= "form-options">
       <%= f.text_field :length, placeholder: "1-500 minutes" %>
     </div>
   </div>
   <div class="row">
-    <div class= "col-xs-2">
+    <div class= "form-options">
       <%= f.text_field :release_year, placeholder: "1800-2100" %>
     </div>
   </div>

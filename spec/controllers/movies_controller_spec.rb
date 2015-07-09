@@ -108,4 +108,20 @@ describe MoviesController do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    before { delete :destroy, id: Fabricate(:movie).id }
+
+    it 'destroys the movie' do
+      expect(Movie.count).to eq 0
+    end
+
+    it 'redirects to the index page' do
+      expect(response).to redirect_to movies_path
+    end
+
+    it 'sets the flash success message' do
+      expect(flash[:success]).to be_present
+    end
+  end
 end

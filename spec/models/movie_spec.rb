@@ -8,6 +8,6 @@ describe Movie do
 
   it { should validate_length_of(:title).is_at_least(1).is_at_most(50) }
   it { should validate_inclusion_of(:format).in_array(%w(VHS DVD Streaming)) }
-  it { should validate_inclusion_of(:length).in_range(1...500) }
-  it { should validate_inclusion_of(:release_year).in_range(1801...2100) }
+  it { should validate_inclusion_of(:length).in_range(1..500) }
+  it { should validate_inclusion_of(:release_year).in_range(1800..2100) }
 end

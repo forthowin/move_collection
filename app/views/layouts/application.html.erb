@@ -8,7 +8,10 @@
 </head>
 <body>
   <%= render 'layouts/navbar' %>
-<%= yield %>
+  <%= render 'layouts/messages' %>
+  <div class='container'>
+    <%= yield %>
+  </div>
   <footer>
     &copy 2015 ThoMovieManager
   </footer>

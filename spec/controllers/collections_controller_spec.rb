@@ -39,4 +39,15 @@ describe CollectionsController do
       end
     end
   end
+
+  describe 'GET index' do
+    it 'assigns @collections' do
+      movie1 = Fabricate(:movie)
+      movie2 = Fabricate(:movie)
+      collection1 = Fabricate(:collection, movie: movie1)
+      collection2 = Fabricate(:collection, movie: movie2)
+      get :index
+      expect(assigns(:collections)).to eq [collection1, collection2]
+    end
+  end
 end

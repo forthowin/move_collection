@@ -29,6 +29,7 @@ gem 'mini_magick'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'carrierwave-aws'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

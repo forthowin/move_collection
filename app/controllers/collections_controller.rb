@@ -1,4 +1,6 @@
 class CollectionsController < ApplicationController
+  handles_sortable_columns
+
   def create
     movie = Movie.find params[:id]
     if Collection.where(movie: movie).empty?
@@ -13,5 +15,12 @@ class CollectionsController < ApplicationController
   def index
     order = sortable_column_order
     @collections = Collection.order(order)
+  end
+
+  def destroy
+    collection = Collection.find(params[:id])
+    collection.destroy
+    flash[:success] = "#{collection.movie.title} has been removed from your collection."
+    redirect_to collections_path
   end
 end

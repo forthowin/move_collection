@@ -9,4 +9,9 @@ class CollectionsController < ApplicationController
     end
     redirect_to collections_path
   end
+
+  def index
+    order = sortable_column_order
+    @collections = Collection.order(order)
+  end
 end

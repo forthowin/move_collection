@@ -6,5 +6,15 @@ class Movie < ActiveRecord::Base
 
   has_many :collections, dependent: :destroy
 
+  before_save :check_cover
+
   mount_uploader :cover, CoverUploader
+
+  private
+
+  def check_cover
+    if self.cover.url.nil?
+      self.cover =  File.open("#{Rails.root}/public/nocover.jpg")
+    end
+  end
 end

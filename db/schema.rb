@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709224616) do
+ActiveRecord::Schema.define(version: 20150710031001) do
 
   create_table "collections", force: :cascade do |t|
     t.integer  "movie_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150709224616) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover"
   end
 
 end

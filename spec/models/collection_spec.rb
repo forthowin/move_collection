@@ -1,5 +1,5 @@
 require 'rails_helper'
 
 describe Collection do
-  it { belongs_to :movie }
+  it { should belong_to :movie }
 end

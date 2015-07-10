@@ -2,6 +2,7 @@
 
 <table class="table table-striped">
   <tr>
+    <th>Movie</th>
     <th><%= sortable_column "Title" %></th>
     <th><%= sortable_column "Format" %></th>
     <th><%= sortable_column "Length" %></th>
@@ -13,6 +14,11 @@
   </tr>
   <% @movies.each do |movie| %>
     <tr>
+      <td>
+        <%= link_to movie_path(movie) do %>
+          <img src=<%= movie.cover.thumb.url %>>
+        <% end %>
+      </td>
       <td><%= link_to movie.title, movie_path(movie) %></td>
       <td><%= movie.format %></td>
       <td><%= format_length(movie.length) %></td>

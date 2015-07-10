@@ -2,6 +2,7 @@
 
 <table class="table table-striped">
   <tr>
+    <th>Movie</th>
     <th><%= sortable_column "Title" %></th>
     <th><%= sortable_column "Format" %></th>
     <th><%= sortable_column "Length" %></th>
@@ -11,6 +12,11 @@
   </tr>
   <% @collections.each do |collection| %>
     <tr>
+      <td>
+        <%= link_to movie_path(collection.movie) do %>
+          <img src=<%= collection.movie.cover.thumb.url %>>
+        <% end %>
+      </td>
       <td><%= link_to collection.movie.title, movie_path(collection.movie) %></td>
       <td><%= collection.movie.format %></td>
       <td><%= format_length(collection.movie.length) %></td>

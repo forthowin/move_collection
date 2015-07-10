@@ -14,11 +14,11 @@ class CollectionsController < ApplicationController
 
   def index
     order = sortable_column_order
-    @collections = Collection.order(order)
+    @collections = Collection.joins(:movie).order(order)
   end
 
   def destroy
-    collection = Collection.find(params[:id])
+    collection = Collection.find(movie_id: params[:id])
     collection.destroy
     flash[:success] = "#{collection.movie.title} has been removed from your collection."
     redirect_to collections_path

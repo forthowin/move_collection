@@ -1,0 +1,2 @@
+Fabricator(:collection) do
+end

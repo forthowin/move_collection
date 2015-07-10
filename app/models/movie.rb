@@ -5,4 +5,6 @@ class Movie < ActiveRecord::Base
   validates :release_year, presence: true, inclusion: { in: 1800..2100, message: 'must be between 1800-2100' }
 
   has_many :collections, dependent: :destroy
+
+  mount_uploader :cover, CoverUploader
 end

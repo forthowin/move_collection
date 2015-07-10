@@ -50,4 +50,23 @@ describe CollectionsController do
       expect(assigns(:collections)).to eq [collection1, collection2]
     end
   end
+
+  describe 'DELETE destroy' do
+    let(:movie) { Fabricate(:movie) }
+    let(:collection) { Fabricate(:collection, movie: movie) }
+
+    before { delete :destroy, id: collection.id }
+
+    it 'removes the movie from the collection' do
+      expect(Collection.count).to eq 0
+    end
+
+    it 'sets the flash success message' do
+      expect(flash[:success]).to be_present
+    end
+
+    it 'redirects to the collections index page' do
+      expect(response).to redirect_to collections_path
+    end
+  end
 end

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -26,6 +26,8 @@ gem 'bootstrap_form'
 gem "handles_sortable_columns"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'omniauth-facebook'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

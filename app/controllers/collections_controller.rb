@@ -18,7 +18,7 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    collection = Collection.find(movie_id: params[:id])
+    collection = Collection.find(params[:id])
     collection.destroy
     flash[:success] = "#{collection.movie.title} has been removed from your collection."
     redirect_to collections_path

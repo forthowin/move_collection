@@ -12,4 +12,11 @@ describe Movie do
   it { should validate_inclusion_of(:release_year).in_range(1800..2100).with_message('must be between 1800-2100') }
 
   it { should have_many(:collections).dependent(:destroy) }
+
+  describe 'before_save check_cover' do
+    it 'sets a default cover if none is uploaded' do
+      Fabricate(:movie)
+      expect(Movie.first.cover.url).to be_present
+    end
+  end
 end

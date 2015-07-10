@@ -13,7 +13,7 @@ feature 'create a movie' do
     click_button 'Save'
     expect(page).to have_content 'The movie was updated successfully.'
     expect(page).to have_content 'DVD'
-    expect(page).to have_content '300'
+    expect(page).to have_content '5 hr 0 m'
     expect(page).to have_content '2015'
     expect(page).to have_content '5/5'
   end

@@ -1,0 +1,27 @@
+<h1>My Movie Collection</h1>
+<hr>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= sortable_column "Title" %></th>
+    <th><%= sortable_column "Format" %></th>
+    <th><%= sortable_column "Length" %></th>
+    <th><%= sortable_column "Release Year" %></th>
+    <th><%= sortable_column "Rating" %></th>
+    <th>Remove</th>
+  </tr>
+  <% @collections.each do |collection| %>
+    <tr>
+      <td><%= link_to collection.movie.title, movie_path(collection.movie) %></td>
+      <td><%= collection.movie.format %></td>
+      <td><%= format_length(collection.movie.length) %></td>
+      <td><%= collection.movie.release_year %></td>
+      <td><%= format_rating(collection.movie) %></td>
+      <td>
+        <%= link_to collection_path(collection), method: :delete, data: { confirm: "Are you sure you want to remove this movie?" } do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

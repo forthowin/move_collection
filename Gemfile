@@ -27,6 +27,7 @@ gem "handles_sortable_columns"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'figaro'
 
 # Use ActiveModel has_secure_password

@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
 
   def index
     order = sortable_column_order
-    @collections = current_user.collections.joins(:movie).order(order)
+    @collections = current_user.collections.joins(:movie).includes(:movie).order(order)
   end
 
   def destroy
